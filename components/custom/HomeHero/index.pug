@@ -1,0 +1,10 @@
+section.home-hero
+  .home-hero__background
+    NuxtImg.home-hero__image(provider="imagekit" src='home-sets-apart-50th.jpg' format='webp, jpg' loading='lazy' alt='A nice image')
+    .home-hero__overlay
+  .home-hero__container
+    .home-hero__col
+      .home-hero__title-container
+        h1.home-hero__title(v-html='data.title.top')
+        .home-hero__subtitle(v-for="(item, i) in data.title.changing_text", :key='`item-${i}`')
+          .home-hero__subtitle-text(:class="{ 'home-hero__subtitle-text--active': i === activeText }") {{ item.text }}
