@@ -1,0 +1,11 @@
+@mixin hover-supported
+  @media not all and (pointer: coarse)
+    &:hover
+      @content
+
+@mixin focus ($offset: rem-calc(3), $width: rem-calc(2), $style: dashed, $color: #000)
+  &:focus-visible
+    outline-offset: $offset
+    outline-width: $width
+    outline-style: $style
+    outline-color: $color      

@@ -1,0 +1,89 @@
+@use 'unit' as *
+@use 'breakpoints' as *
+@use 'colors' as *
+  
+$font: 'Prompt', helvetica, arial, sans-serif
+$font-heading: 'Zilla Slab', serif
+
+%body-small
+  @include desktop
+    font-size: rem-calc(17)
+  font-size: rem-calc(14)
+
+%body-mini
+  @include desktop
+    font-size: rem-calc(14)
+  font-size: rem-calc(12)
+
+%h1
+  @include laptop-sm
+    font-size: rem-calc(48)
+  @include tablet-lg
+    font-size: rem-calc(38)
+  @include phone-lg
+    line-height: 1.1
+    letter-spacing: 0.0125em
+    font-size: rem-calc(32) 
+  line-height: 1.14
+  letter-spacing: 0.026em
+  font-family: $font-heading
+  font-size: rem-calc(56)
+  font-weight: 400
+
+%h2
+  @include phone-lg
+    line-height: 1.23
+    letter-spacing: 0.038em
+    font-size: rem-calc(32)
+  line-height: 1.2
+  letter-spacing: 0.05em
+  font-family: $font-heading
+  font-size: rem-calc(40)
+  font-weight: 300
+
+%h2-bold
+  @include phone-lg
+    line-height: 1.23
+    letter-spacing: 0.038em
+    font-size: rem-calc(26)
+  line-height: 1.2
+  letter-spacing: 0.05em
+  font-family: $font-heading
+  font-size: rem-calc(40)
+  font-weight: 500
+
+%h3
+  @include phone-lg
+    line-height: 1.411
+    letter-spacing: 0.117
+    font-size: rem-calc(17)
+  line-height: 1.333
+  letter-spacing: 0.16em
+  font-size: rem-calc(24)
+  font-weight: 300
+
+%h4
+  font-size: 25px
+  font-weight: bold
+
+%h5
+  font-size: 20px
+
+%h6
+  font-size: 18px
+
+%a
+  text-decoration: none
+  color: $black
+
+%no-margin
+  margin: 0
+
+%button
+  @include nexus
+    font-size: rem-calc(17)
+  text-transform: lowercase
+  line-height: 1.333
+  letter-spacing: rem-calc(4)
+  font-size: rem-calc(24)
+  font-weight: 300        

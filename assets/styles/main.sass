@@ -1,0 +1,38 @@
+@use './global/index' as *
+
+*
+  box-sizing: border-box
+
+body
+  @include desktop
+    font-size: 20px
+  @include phone-lg
+    line-height: 1.71
+    letter-spacing: 0.0178em
+    font-size: 16px
+  text-rendering: optimizeLegibility
+  line-height: 1.667
+  letter-spacing: 0.02em
+  font-family: $font
+  font-size: 18px
+  font-weight: 300
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+h1
+  @extend %h1  
+
+h2
+  @extend %h2 !optional
+
+h3
+  @extend %h3 !optional
+
+h4
+  @extend %h4 !optional
+
+a
+  @extend %a !optional
+
+p, li, h1, h2, h3, h4, h5
+  @extend %no-margin !optional
