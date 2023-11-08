@@ -1,14 +1,10 @@
 <template lang="pug" src="./index.pug"></template>
 
 <script setup>
-const route = useRoute()
-const { data } = await useAsyncData('home', async () => {
-  const [pageData, globalData] = await Promise.all([getData('home'), getData('global', 'globalData')])
-  return { pageData, globalData }
-})
+const { path } = useRoute()
+const { data } = await usePageData('home')
 
-const { pageData, globalData } = data.value
-const { headTags, seoOgMeta } = setMeta(pageData, route.fullPath)
-useHead(headTags)
-useSeoMeta(seoOgMeta)
+const pageData = data.value
+usePageMeta(pageData, path)
+
 </script>

@@ -2,7 +2,7 @@ import { api } from './api'
 
 export default async (slug, customPostType = 'pages') => {
  const response = await $fetch(`${api}/wp/v2/${customPostType}?slug=${slug}`)
- const data = await response
+ const data = response
 
  return {
     title: data[0].title.rendered,
