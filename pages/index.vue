@@ -3,8 +3,6 @@
 <script setup>
 const { path } = useRoute()
 const { data } = await usePageData('home')
-
-const pageData = data.value
-usePageMeta(pageData, path)
+usePageMeta(data.value, path)
 
 </script>

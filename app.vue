@@ -6,4 +6,6 @@ main#main-content
 
 <script setup>
 const { data: globalData } = await usePostData('global', 'globalData')
+// TODO - create layouts: default, blog (multiple?), error
+// and move all this to layout
 </script>
