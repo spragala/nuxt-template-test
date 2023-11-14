@@ -1,6 +1,6 @@
 <template lang="pug">
 main#main-content
-  //- BaseNavigation
+  BaseNavigation(:globalData='globalData')
   NuxtPage(:globalData='globalData')
 </template>
 

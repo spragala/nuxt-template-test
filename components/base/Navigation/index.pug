@@ -1,4 +1,6 @@
 .base-navigation
-  .base-navigation__wrapper(v-if='props')
-    p(v-html='props.phone.number')
-    h2 I'm the navigation
+  .base-navigation__wrapper
+    .base-navigation__logo-wrapper
+      base-icon.base-navigation__logo--small(name='logo')
+      base-icon.base-navigation__logo(name='large-logo')
+    p.base-navigation__number(v-html='globalData.phone.number')

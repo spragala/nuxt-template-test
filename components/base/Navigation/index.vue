@@ -1,7 +1,9 @@
 <template lang="pug" src="./index.pug"></template>
 
 <script setup>
-const { data } = await useAsyncData('navigation', () => getData('global', 'globalData'))
-
-const props = data.value
+const props = defineProps({
+  globalData: Object
+})
 </script>
+
+<style lang="sass" src="./index.sass"></style>
