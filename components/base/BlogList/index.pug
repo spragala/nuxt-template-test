@@ -1,0 +1,4 @@
+section.base-blog-list
+  //- TODO: create blog "card" component
+  .base-blog-list__blogs(v-for="(blog, i) in blogs" :key="`blog-${i}`")
+      nuxt-link.base-blog-list__link(:to="`/blog/${blog.slug}`") {{ blog.blog.title }}
