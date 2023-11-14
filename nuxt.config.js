@@ -1,9 +1,25 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+// Blog pages on Vercel seem to be prerendered
+// import axios from 'axios'
+// import { apiBase } from './utils/api'
+
+// const getPostRoutes = async () => {
+  // Need to paginate to get all blog pages
+//   const res = await axios.get(`${apiBase}/wp/v2/posts?per_page=100`)
+//   return res?.data?.map((blog) => `/blog/${blog.slug}`)
+// }
+
 export default defineNuxtConfig({
   devtools: { enabled: false },
   devServer: {
     port: 8080
   },
+  // hooks: {
+  //   async 'nitro:config'(nitroConfig) {
+  //     const slugs = await getPostRoutes()
+  //     nitroConfig.prerender?.routes?.push(...slugs)
+  //   }
+  // },
   css: [ '@/assets/styles/normalize.sass', '@/assets/styles/main.sass' ],
   app: {
     head: {

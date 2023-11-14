@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.0.0",
+    "axios": "^1.6.1",
     "pug": "^3.0.2",
     "sass": "^1.69.5"
   }
