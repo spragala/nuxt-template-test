@@ -1,7 +1,8 @@
 import { apiBase } from '~/utils/api'
 
 export default async (page, per_page = '4') => {
-  const { data, refresh } = useAsyncData(async () => {
+
+  const { data, refresh } = useAsyncData(`posts-${page.value}`, async () => {
     let response = await $fetch.raw(`${apiBase}/wp/v2/posts`, {
       params: {
         per_page,
@@ -22,7 +23,8 @@ export default async (page, per_page = '4') => {
 
     return { blogs, totalPages }
   }, {
-    watch: [page] // 
+    watch: [page]
   })
   return { data, totalPages: computed(() => data.value?.totalPages), refresh }  
+
 }
