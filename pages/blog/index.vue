@@ -1,18 +1,21 @@
 <template lang="pug">
 .page-blog
   h2.page-blog__container I have all the blogs
-  //- AllBlogs Component(:blogs='data.blogs')
-  .page-blog__blogs(v-for="(blog, i) in data.blogs" :key="`blog-${i}`")
-    nuxt-link.page-blog__link(:to="`/blog/${blog.slug}`") {{ blog.blog.title }}
+  //- pre {{ data.blogs }}
+  BaseBlogList(:blogs='data.blogs')
   BasePagination(:totalPages="totalPages" :currentPage="currentPage", @newPage="handleNewPage")
 </template>
 
 <script setup>
 const currentPage = ref(1)
 const { path } = useRoute()
-const globalData = useAttrs().globalData 
 
-const { data, totalPages, refresh } = await usePaginatedPosts(currentPage)
+// TODO: Data caching, save blogs in ref object && only fetch un-fetched posts - maybe handled by nuxt natively?
+// https://nuxt.com/docs/getting-started/data-fetching#caching-and-refetching
+// TODO: Add lazy to navigate to the page while fetching posts. Need to handle "loading" state with 
+// "pending" or "status" return values
+
+const { data, totalPages, refresh } = await usePaginatedPosts(currentPage, "3")
 
 const { data: page } = await usePageData('blog')
 usePageMeta(page.value, path)
@@ -22,7 +25,8 @@ const handleNewPage = (newPage) => {
   refresh()
 }
 
-//TODO: category drop down - need category fetch, https://vue3datepicker.com/, function to refetch based on new query:
+// TODO: category drop down - need category fetch - update PagPosts composable to fetch with cat params, 
+// https://vue3datepicker.com/, function to refetch based on new query:
 // $fetch.raw(`${apiBase}/wp/v2/posts?categories=${slectedCategory}&order=desc&before=${selectedDateInISO8601}&after={selectedDateOrRange}`)
 /* or let response = await $fetch.raw(`${apiBase}/wp/v2/posts`, {
   params: {
@@ -32,5 +36,9 @@ const handleNewPage = (newPage) => {
     order: 'desc'
   }
 })*/
+
+// TODO: back button will bring you back to page 1 should bring you back to page you were on, 
+// update to save place (maybe url query: ?page=2 (also good for seo))
+// TODO: Pagination - only show if totalPages > 1, error handling: totalPages null or undefined
 
 </script>

@@ -1,7 +1,7 @@
 <template lang="pug" src="./index.pug"></template>
 
 <script setup>
-const { data } = defineProps({
+const props = defineProps({
   data: Object
 })
 
@@ -9,7 +9,7 @@ const activeText = ref(0)
 
 onMounted(()=> {
   setInterval(() => {
-    activeText.value = (activeText.value + 1) % data.title.changing_text.length
+    activeText.value = (activeText.value + 1) % props.data.title.changing_text.length
   }, 3000)
 })
 </script>
