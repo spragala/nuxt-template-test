@@ -5,10 +5,12 @@ const props = defineProps({
   totalPages: Number,
   currentPage: Number
 })
-const emit = defineEmits(['newPage'])
 
-const onPageUpdate = pageNum => {
-  emit('newPage', pageNum)
+const setUrl = (pageNum) => {
+  if (pageNum === 1) {
+    return `/blog`
+  } else {
+    return `/blog/page/${pageNum}`
+  }
 }
-
 </script>

@@ -1,4 +1,4 @@
 nav.base-pagination(aria-label="Pagination")
   //- TODO: needs arrows, base styling
   .base-pagination__pages(v-for='(num, i) in totalPages' :key='`page-num-${i}`')
-    button.base-pagination__number(@click='onPageUpdate(i + 1)' :class="{ 'base-pagination__number--active': currentPage === i + 1 }" :aria-current="currentPage === i + 1 ? 'true' : null") {{ i + 1}}
+    nuxt-link.base-pagination__number(:to="setUrl(i + 1)" :class="{ 'base-pagination__number--active': currentPage === i + 1 }" :aria-current="currentPage === i + 1 ? 'true' : null") {{ num }}
