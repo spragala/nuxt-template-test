@@ -4,3 +4,5 @@
       base-icon.base-navigation__logo--small(name='logo')
       base-icon.base-navigation__logo(name='large-logo')
     p.base-navigation__number(v-html='globalData.phone.number')
+  .base-navigation__links(v-for='(page, i) in pages')
+    p {{ page.name }}  
