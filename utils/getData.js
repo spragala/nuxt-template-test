@@ -2,18 +2,17 @@ import { apiBase } from './api'
 
 export default async (slug, customPostType = 'pages') => {
  const response = await $fetch(`${apiBase}/wp/v2/${customPostType}?slug=${slug}`)
- const data = response
 
- const result = {
-    title: data[0].title.rendered,
-    slug: data[0].slug, // may not need
-    ...data[0].acf
+ const data = {
+    title: response[0].title.rendered,
+    slug: response[0].slug, // may not need
+    ...response[0].acf
   }
 
   if (customPostType = 'posts') {
-    result.date = data[0].date
+    data.date = response[0].date
+    data.categories = response[0].categories
   }
 
-  return result
-
+  return data
 }
