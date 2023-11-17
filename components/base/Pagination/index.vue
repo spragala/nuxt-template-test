@@ -6,6 +6,8 @@ const props = defineProps({
   currentPage: Number
 })
 
+const paginatedLinks = formatPagination(props.currentPage, props.totalPages, 8)
+
 const setUrl = (pageNum) => {
   if (pageNum === 1) {
     return `/blog`

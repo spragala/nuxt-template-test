@@ -1,4 +1,5 @@
 nav.base-pagination(aria-label="Pagination")
   //- TODO: needs arrows, base styling
-  .base-pagination__pages(v-for='(num, i) in totalPages' :key='`page-num-${i}`')
-    nuxt-link.base-pagination__number(:to="setUrl(i + 1)" :class="{ 'base-pagination__number--active': currentPage === i + 1 }" :aria-current="currentPage === i + 1 ? 'true' : null") {{ num }}
+  .base-pagination__pages(v-for='(num, i) in paginatedLinks' :key='`page-num-${i}`')
+    p(v-if='isNaN(num)') {{ num }}
+    nuxt-link.base-pagination__number( v-else='!isNaN(num)' :to="setUrl(num)" :class="{ 'base-pagination__number--active': currentPage === num }" :aria-current="currentPage === num ? 'true' : null") {{ num }}
